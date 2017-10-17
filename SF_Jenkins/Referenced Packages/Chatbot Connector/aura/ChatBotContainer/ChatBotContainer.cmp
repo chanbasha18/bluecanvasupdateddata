@@ -1,0 +1,44 @@
+<!--
+ - Created by Deepu on 2/6/17.
+ -->
+
+<aura:component description="ChatBotContainer" controller="nfbot.ChatBotComponentController">
+  <aura:attribute name="bot" default="" type="String" required="true"/>
+  <aura:attribute name="conversationList" default="[]" type="List"/>
+  <aura:attribute name="botObject" default="{}" type="Map"/>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+  <style type="text/css">
+    @keyframes ellipsis {
+        to {
+            width: 1.25em;
+        }
+    }
+
+    @-webkit-keyframes ellipsis {
+        to {
+            width: 1.25em;
+        }
+    }
+  </style>
+  <div class="slds-docked-composer__body slds-p-around--small slds-theme--default" id="chatBody">
+    <div class="slds-p-bottom--small">
+      <div class="textWrap slds-float--right slds-button--brand slds-badge">
+        How can I help You?
+      </div>
+    </div>
+    <aura:iteration items="{!v.conversationList}" var="con">
+      <div class="slds-p-bottom--small">
+        <div class="{!(con.isBot? 'slds-float--right slds-button--brand' : '') + ' slds-badge textWrap'}">
+                {!con.conversation}
+        </div>
+      </div>
+    </aura:iteration>
+    <div class="slds-p-bottom--small slds-hide slds-text-align--center" aura:id="loadingDiv">
+      <div class="loading">
+      </div>
+    </div>
+  </div>
+  <footer class="slds-modal__footer slds-docked-composer__footer slds-shrink-none slds-theme--shade">
+    <ui:inputTextArea class="slds-input--bare slds-text-longform slds-grow" placeholder="..." rows="1" updateOn="keyup" keyup="{!c.checkKeyPress}" aura:id="chatBox"/>
+  </footer>
+</aura:component>

@@ -1,0 +1,26 @@
+/**
+ * Created by Deepu on 2/6/17.
+ */
+.THIS.slds-docked-composer__footer {
+    background: #f4f6f9;
+    padding: .75rem .5rem;
+}
+
+.THIS .textWrap {
+    text-align : left;
+    white-space : inherit;
+}
+
+.THIS .loading {
+    font-size: 30px;
+}
+
+.THIS .loading:after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026";
+  width: 0px;
+}

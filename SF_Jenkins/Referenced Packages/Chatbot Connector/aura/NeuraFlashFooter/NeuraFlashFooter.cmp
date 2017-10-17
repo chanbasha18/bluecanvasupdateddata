@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+  <footer role="contentinfo" class="slds-text-body--small slds-docked-form-footer" >
+	<div class="slds-size--1-of-1 slds-p-around--large">
+      <div class="slds-grid slds-grid--align-spread">
+        <div class="slds-col">
+          <p>Chatbot Connector by NeuraFlash Labs<br/><a href="www.neuraflash.com">www.neuraflash.com</a></p>
+        </div>
+        <p class="slds-col">
+          &copy; Copyright 2017 NeuraFlash LLC. All rights reserved.
+          <br/>745 Atlantic Ave, Boston MA 02111<br/>
+        </p>
+      </div>
+	</div>
+  </footer>
+  <div class="slds-size--1-of-1 slds-p-around--xx-large"/>
+</aura:component>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Question Contact Neuraflash</description>
+    <fieldOverrides>
+        <field>Subject</field>
+        <formula>&quot;ChatBot Connector - Question? - &quot; + $Organization.Id + &quot;-&quot; + $User.Username</formula>
+    </fieldOverrides>
+    <fieldOverrides>
+        <field>ToAddress</field>
+        <formula>&quot;sandeep.peddireddy@neuraflash.com&quot;</formula>
+    </fieldOverrides>
+    <label>Question?</label>
+    <optionsCreateFeedItem>true</optionsCreateFeedItem>
+    <quickActionLayout>
+        <layoutSectionStyle>TwoColumnsLeftToRight</layoutSectionStyle>
+        <quickActionLayoutColumns>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>ValidatedFromAddress</field>
+                <uiBehavior>Required</uiBehavior>
+            </quickActionLayoutItems>
+            <quickActionLayoutItems>
+                <emptySpace>false</emptySpace>
+                <field>HtmlBody</field>
+                <uiBehavior>Edit</uiBehavior>
+            </quickActionLayoutItems>
+        </quickActionLayoutColumns>
+        <quickActionLayoutColumns/>
+    </quickActionLayout>
+    <targetObject>OutgoingEmail</targetObject>
+    <type>SendEmail</type>
+</QuickAction>

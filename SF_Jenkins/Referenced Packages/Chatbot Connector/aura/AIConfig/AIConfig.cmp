@@ -1,0 +1,60 @@
+<!--
+ - Created by Deepu on 1/31/17.
+ -->
+
+<aura:component description="AIConfig" implements="flexipage:availableForAllPageTypes" access="global"
+                controller="nfbot.AIConfigComponentController">
+  <aura:attribute default="{}" name="config" type="Map" />
+  <aura:attribute default="[]" name="configs" type="List" />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+  <aura:handler event="nfbot:AIConfigSelect" action="{!c.handleUpdateEvent}"/>
+  <div class="slds">
+    <div class="slds-grid slds-grid--align-center slds-m-around--x-large">
+      <aura:iteration items="{!v.configs}" var="conf">
+        <nfbot:AIConfigCard config="{!conf}"/>
+      </aura:iteration>
+      <div class="tile slds-m-left--large">
+        <a class="slds-app-launcher__tile slds-text-link--reset slds-app-launcher__tile--small" onclick="{!c.addNew}">
+          <div class="slds-app-launcher__tile-figure slds-app-launcher__tile-figure--small">
+            <span class="slds-avatar slds-avatar--large slds-align--absolute-center slds-icon-custom-27">
+              <lightning:icon iconName="action:add_relationship" size="medium" alternativeText="Add New"
+                              class="icon-no-container"/>
+            </span>
+          </div>
+          <div class="slds-app-launcher__tile-body slds-app-launcher__tile-body--small">
+            <span class="slds-truncate slds-text-link" title="Sales Cloud">Add New</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" aura:id="detailModal">
+      <div class="slds-modal__container">
+        <div class="slds-modal__header">
+          <lightning:buttonIcon alternativeText="Close" iconName="utility:close" class="slds-modal__close"
+                                size="large" onclick="{!c.toggleModal}" variant="bare-inverse"/>
+          <h2 id="header43" class="slds-text-heading--medium">New</h2>
+        </div>
+        <div class="slds-modal__content slds-p-horizontal--xx-large slds-p-vertical--large">
+          <ui:inputText label="Name" aura:id="name" placeholder="Name" change="{!c.fieldChangeEvent}"
+                        class="slds-m-bottom--medium" disabled="{!v.config.isDefault}"/>
+          <ui:inputSelect change="{!c.fieldChangeEvent}" label="AI Vendor"
+                          options="[{label : 'Wit', value : 'Wit'}, {label : 'Api', value : 'Api'}]" aura:id="vendor"
+                          class="slds-m-bottom--medium" disabled="{!v.config.isDefault}"/>
+          <ui:inputText aura:id="accessToken" placeholder="Server Access Token" change="{!c.fieldChangeEvent}"
+                        label="Server Access Token" class="slds-m-bottom--medium"/>
+          <div class="slds-form-element slds-m-bottom--medium slds-grid">
+            <ui:inputCheckbox change="{!c.fieldChangeEvent}" aura:id="active" disabled="{!v.config.isDefault}"/>
+            <label class="uiLabel-left slds-form-element__label uiLabel slds-p-left--small" for="text-input-01">
+              Is Active
+            </label>
+          </div>
+        </div>
+        <div class="slds-modal__footer slds-modal__footer--directional">
+          <button class="slds-button slds-button--neutral" onclick="{!c.toggleModal}">Cancel</button>
+          <button class="slds-button slds-button--brand" onclick="{!c.save}">Save</button>
+        </div>
+      </div>
+    </div>
+    <div class="slds-backdrop" aura:id="detailModalBackdrop" onclick="{!c.toggleModal}"></div>
+  </div>
+</aura:component>

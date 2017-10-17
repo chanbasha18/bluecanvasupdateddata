@@ -1,0 +1,20 @@
+<apex:page controller="TableController" showheader="true" sidebar="false">
+ <apex:form >
+   <table border="1" width="650Px">
+    <tr> 
+      <th> Account Name</th>
+      <th> Type  </th>
+      <th> Industry</th>
+    </tr>
+    
+    <apex:repeat value="{!accList}" var="a">
+      <tr>
+        <td> {!a.Name} </td>
+        <td> {!a.type} </td>
+        <td> {!a.industry} </td>
+      </tr>
+     </apex:repeat>
+   </table>
+
+ </apex:form>
+ </apex:page>

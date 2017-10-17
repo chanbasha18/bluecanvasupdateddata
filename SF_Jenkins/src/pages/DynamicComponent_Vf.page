@@ -1,0 +1,12 @@
+<apex:page controller="vf_DynamicComponentExmp">  
+   <apex:pageMessages id="errors" escape="false" />   
+    <apex:form >  
+      <apex:pageBlock >  
+        <apex:pageBlockButtons location="top" id="buttons">   
+         <apex:commandButton id="Save" value="Save" action="{!saveData}" />   
+       </apex:pageBlockButtons>  
+       
+       <apex:dynamicComponent componentValue="{!table}"/>   
+     </apex:pageBlock>   
+    </apex:form>  
+ </apex:page>

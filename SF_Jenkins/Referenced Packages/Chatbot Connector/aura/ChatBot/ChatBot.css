@@ -1,0 +1,26 @@
+/**
+ * Created by Deepu on 2/1/17.
+ */
+.THIS.slds-docked_container {
+    z-index : 100000;
+}
+.THIS .small-composer {
+    max-height: 350px;
+    max-width: 300px;
+}
+
+.THIS .slds-modal__content .slds-docked-composer__body {
+    height: 150px;
+}
+
+.THIS .iconColor .slds-icon {
+    fill: rgb(22, 50, 92);
+}
+
+.THIS .slds-modal__container {
+    height : inherit;
+}
+
+.THIS .slds-modal {
+    top : inherit;
+}

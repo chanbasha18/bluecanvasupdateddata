@@ -1,0 +1,18 @@
+<!--
+ - Created by Deepu on 2/1/17.
+ -->
+
+<aura:component description="AIConfigCard">
+  <aura:attribute default="{}" name="config" required="true" type="Map"/>
+  <aura:registerEvent name="AIConfigSelect" type="nfbot:AIConfigSelect"/>
+  <div class="tile">
+    <a onclick="{!c.update}" class="slds-app-launcher__tile slds-text-link--reset slds-app-launcher__tile--small" data-confId="{!v.config.id}">
+      <div class="slds-app-launcher__tile-figure slds-app-launcher__tile-figure--small">
+        <span class="{!(v.config.active? '' : 'background-error ') + 'slds-avatar slds-avatar--large slds-align--absolute-center slds-icon-custom-27'}">{!v.config.shortName}</span>
+      </div>
+      <div class="slds-app-launcher__tile-body slds-app-launcher__tile-body--small">
+        <span class="slds-truncate slds-text-link" title="Sales Cloud">{!v.config.name}</span>
+      </div>
+    </a>
+  </div>
+</aura:component>

@@ -1,0 +1,13 @@
+/**
+ * Created by Deepu on 2/1/17.
+ */
+.THIS .tile {
+    width:6rem;
+    padding-left:.5rem;
+    padding-right:.5rem;
+}
+.THIS .icon-no-container {
+    background-color: inherit!important;
+    padding: 0!important;
+    border-radius: 0!important;
+}

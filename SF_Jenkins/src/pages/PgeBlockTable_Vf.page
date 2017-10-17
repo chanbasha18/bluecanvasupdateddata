@@ -1,0 +1,22 @@
+<apex:page docType="html-5.0" controller="PageBlockTable">
+
+<apex:form >
+
+    <apex:pageBlock >
+    
+        <apex:pageBlockTable value="{!listAccount}" var="a">
+            <apex:column value="{!a.Name}"/>
+            <apex:column value="{!a.AnnualRevenue}" style="text-align:right;">
+                <apex:facet name="footer">
+                    <apex:outputText value="${0, number, ###,###,###,##0.00}" style="float:right;">
+                        <apex:param value="{!totalRevenue}" />
+                    </apex:outputText>
+                </apex:facet>
+            </apex:column>
+        </apex:pageBlockTable>
+        
+    </apex:pageBlock>
+    
+</apex:form>
+
+</apex:page>

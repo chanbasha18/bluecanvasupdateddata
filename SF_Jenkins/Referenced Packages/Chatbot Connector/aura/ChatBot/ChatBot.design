@@ -1,0 +1,7 @@
+<!--
+ - Created by Deepu on 2/2/17.
+ -->
+
+<design:component >
+    <design:attribute name="bot" label="Bot" description="Configuration id of the bot to be connected."/>
+</design:component>

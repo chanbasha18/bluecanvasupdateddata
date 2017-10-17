@@ -1,0 +1,50 @@
+<!--
+ - Created by Deepu on 2/1/17.
+ -->
+
+<aura:component description="ChatBot" implements="forceCommunity:availableForAllPageTypes" access="global">
+  <aura:attribute name="bot" default="" type="String" access="global"/>
+  <aura:attribute name="showModal" default="false" type="Boolean"/>
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+  <div class="slds-docked_container">
+    <div class="slds-m-bottom--medium">
+      <lightning:buttonIcon alternativeText="Chat" iconName="utility:chat" size="large"
+                            class="slds-avatar--circle slds-avatar--large slds-p-around--none slds-theme--inverse"
+                            variant="bare-inverse" onclick="{!c.toggleChat}" aura:id="openButtonIcon"/>
+    </div>
+    <div class="slds-docked-composer slds-grid slds-grid--vertical small-composer slds-hide" role="dialog"
+         aria-labelledby="panel-heading-01" aura:id="chatContainer">
+      <div class="slds-text-color--default slds-theme--inverse slds-docked-composer__header slds-grid slds-shrink-none"
+           onclick="{!c.toggleChat}">
+        <div class="slds-media slds-media--center">
+          <div class="slds-media__figure slds-m-right--x-small">
+          <span class="slds-icon_container">
+            <lightning:buttonIcon alternativeText="Chat" iconName="utility:chat" variant="bare-inverse" size="large"/>
+          </span>
+          </div>
+          <div class="slds-media__body">
+            <h4 class="slds-text-color--inverse">Chat</h4>
+          </div>
+        </div>
+        <div class="slds-col--bump-left">
+          <lightning:buttonIcon alternativeText="Chat" iconName="utility:minimize_window" variant="bare-inverse"
+                                aura:id="minimize_btn"/>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div role="dialog" tabindex="-1" aria-labelledby="header43" class="slds-modal" aura:id="chatModel">
+    <div class="slds-modal__container">
+      <div class="slds-modal__header slds-p-vertical--small">
+        <lightning:buttonIcon alternativeText="Close" iconName="utility:close" class="slds-modal__close" size="large"
+                              onclick="{!c.toggleChat}" variant="bare-inverse"/>
+        <h4 id="header43" class="slds-text-heading--small slds-float--left">
+          <lightning:Icon alternativeText="Chat" iconName="utility:chat" size="small" class="iconColor"/>
+          <span class="slds-p-left--small">Chat</span>
+        </h4>
+      </div>
+      <div class="slds-modal__content" aura:id="modalContainer"/>
+    </div>
+  </div>
+  <div class="slds-backdrop" aura:id="chatModalBackdrop" onclick="{!c.toggleModal}"></div>
+</aura:component>
